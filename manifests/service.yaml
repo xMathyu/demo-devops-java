@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-devops-workflow
+  namespace: namespace-workflow-1695919436149
+spec:
+  type: LoadBalancer
+  selector:
+    app: demo-devops-workflow
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
