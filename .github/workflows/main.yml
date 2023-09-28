@@ -34,7 +34,7 @@ jobs:
       - name: Configurar Kubectl
         uses: azure/setup-kubectl@v1
         with:
-          version: '1.28.0'
+          version: '1.22.2'
 
       - name: Desplegar en Kubernetes
         run: kubectl apply -f DevOps/k8s.yaml
