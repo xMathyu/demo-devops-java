@@ -39,8 +39,8 @@ jobs:
 
       - name: Verificar ruta del archivo k8s.yaml
         run: |
-          ls -l DevOps/k8s.yaml
+          ls -l k8s.yaml
         working-directory: ${{ github.workspace }}
 
       - name: Desplegar en Kubernetes
-        run: kubectl apply -f DevOps/k8s.yaml
+        run: kubectl apply -f devops/k8s.yaml
