@@ -37,5 +37,8 @@ jobs:
           version: 'v1.15.0'
         id: install
 
+      - name: Verificar ubicación de directorio
+        run: ls
+
       - name: Desplegar en Kubernetes
         run: kubectl apply -f devops/k8s.yaml
