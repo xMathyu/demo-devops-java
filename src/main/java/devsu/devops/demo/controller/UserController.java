@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.boot.actuate.health.Health;
+
 import devsu.devops.demo.service.UserService;
 import devsu.devops.demo.service.dto.UserDto;
 import jakarta.validation.Valid;
