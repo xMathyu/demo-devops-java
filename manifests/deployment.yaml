@@ -6,7 +6,7 @@ metadata:
     app: demo-devops-workflow
   namespace: namespace-workflow-1695919436149
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: demo-devops-workflow
