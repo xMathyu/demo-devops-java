@@ -1,142 +1,68 @@
-# Demo Devops Java
+# Proyecto Java Spring Boot con GitHub Actions en Azure
 
-This is a simple application to be used in the technical test of DevOps.
+Este es un proyecto de ejemplo que utiliza Java Spring Boot junto con las tecnologías de la nube de Azure para crear una aplicación web. El proyecto también incorpora GitHub Actions para automatizar el proceso de desarrollo y despliegue, asegurando una alta calidad de código y seguridad.
 
-## Getting Started
+## Tecnologías Utilizadas
 
-### Prerequisites
+- **Java Spring Boot:** Esta aplicación está construida con Java y utiliza el framework Spring Boot para facilitar el desarrollo de aplicaciones Java.
 
-- Java Version 17
-- Spring Boot 3.0.5
-- Maven
+- **GitHub Actions:** Se utiliza GitHub Actions para automatizar el flujo de trabajo de desarrollo, pruebas y despliegue.
 
-### Installation
+- **Azure:** La aplicación se encuentra desplegada en Azure, utilizando servicios como Azure Kubernetes Service (AKS), Azure Container Registry y Azure Load Balancer.
 
-Clone this repo.
+- **Docker:** La aplicación se empaqueta en contenedores Docker para facilitar su implementación y gestión en AKS.
 
-```bash
-git clone https://bitbucket.org/devsu/demo-devops-java.git
-```
+- **Kubernetes:** Kubernetes se utiliza para la orquestación de contenedores y el escalado de la aplicación en AKS.
 
-### Database
+- **SonarCloud:** Se realiza un análisis estático y de cobertura de código utilizando SonarCloud para mantener la calidad del código.
 
-The database is generated as a file in the main path when the project is first run, and its name is `test.mv.db`.
+- **Terraform:** Se utiliza Terraform para automatizar la infraestructura de AKS y otros recursos de Azure.
 
-Consider giving access permissions to the file for proper functioning.
+- **BlackDuck y Polaris (Opcional):** En el pipeline de GitHub Actions, se pueden agregar tecnologías como BlackDuck o Polaris para realizar análisis de seguridad y asegurar la integridad del código.
 
-## Usage
+## Pipeline de GitHub Actions
 
-To run tests you can use this command.
+El pipeline de GitHub Actions para este proyecto incluye los siguientes pasos:
 
-```bash
-mvn clean test
-```
+1. **Build y Pruebas Unitarias:** En esta etapa, se compila el código y se ejecutan pruebas unitarias para garantizar su calidad.
 
-To run locally the project you can use this command.
+2. **Análisis Estático y de Cobertura de Código:** Utilizando SonarCloud, se realiza un análisis estático y se verifica la cobertura de código para identificar y abordar posibles problemas en el código.
 
-```bash
-mvn spring-boot:run
-```
+3. **Empaquetado en Docker:** La aplicación se empaqueta en un contenedor Docker para facilitar su implementación.
 
-Open http://127.0.0.1:8000/api/swagger-ui.html with your browser to see the result.
+4. **Despliegue en Azure AKS:** Usando Terraform, se implementa la infraestructura de Azure, incluyendo AKS, Azure Container Registry y Azure Load Balancer.
 
-### Features
+5. **Despliegue en Kubernetes:** Se implementa la aplicación en AKS mediante Kubernetes.
 
-These services can perform,
+6. **Análisis de Seguridad (Opcional):** Se pueden agregar pasos de análisis de seguridad utilizando herramientas como BlackDuck o Polaris.
 
-#### Create User
+Con esta automatización en GitHub Actions, garantizamos que el proceso de desarrollo, pruebas y despliegue sea rápido y confiable, lo que conduce a una mayor calidad en el código y la seguridad de la aplicación.
 
-To create a user, the endpoint **/api/users** must be consumed with the following parameters:
+## Configuración
 
-```bash
-  Method: POST
-```
+Para configurar este proyecto en su entorno local, siga los siguientes pasos:
 
-```json
-{
-    "dni": "dni",
-    "name": "name"
-}
-```
+1. Clonar el repositorio desde GitHub.
 
-If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+2. Asegurarse de tener las herramientas necesarias instaladas, como Java, Maven, Docker, y Kubernetes.
 
-```json
-{
-    "id": 1,
-    "dni": "dni",
-    "name": "name"
-}
-```
+3. Configurar las credenciales de Azure para acceder a su cuenta.
 
-If the response is unsuccessful, we will receive status 400 and the following message:
+4. Personalizar el archivo de configuración de Terraform para adaptarlo a sus necesidades específicas de Azure.
 
-```json
-{
-    "errors": [
-        "error"
-    ]
-}
-```
+5. Ejecutar los comandos de Terraform para implementar la infraestructura en Azure.
 
-#### Get Users
+6. Configurar las variables de entorno necesarias para la aplicación Spring Boot.
 
-To get all users, the endpoint **/api/users** must be consumed with the following parameters:
+7. Compilar y empaquetar la aplicación utilizando Maven.
 
-```bash
-  Method: GET
-```
+8. Crear y ejecutar el contenedor Docker con la aplicación.
 
-If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+9. Desplegar la aplicación en AKS utilizando Kubernetes.
 
-```json
-[
-    {
-        "id": 1,
-        "dni": "dni",
-        "name": "name"
-    }
-]
-```
+Una vez configurado, su aplicación Java Spring Boot estará en funcionamiento en Azure, con GitHub Actions automatizando el flujo de trabajo de desarrollo y despliegue, garantizando una alta calidad de código y seguridad.
 
-#### Get User
+¡Disfrute trabajando en su proyecto de Java Spring Boot en Azure con todas estas tecnologías de nube y DevOps!
 
-To get an user, the endpoint **/api/users/<id>** must be consumed with the following parameters:
 
-```bash
-  Method: GET
-```
-
-If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
-
-```json
-{
-    "id": 1,
-    "dni": "dni",
-    "name": "name"
-}
-```
-
-If the user id does not exist, we will receive status 404 and the following message:
-
-```json
-{
-    "errors": [
-        "User not found: <id>"
-    ]
-}
-```
-
-If the response is unsuccessful, we will receive status 400 and the following message:
-
-```json
-{
-    "errors": [
-        "error"
-    ]
-}
-```
-
-## License
-
-Copyright © 2023 Devsu. All rights reserved.
+![Diagrama](https://i.ibb.co/k13wSKY/1-jt8f-Jpq-Cfvef-Obuikf-G4-A.png)
